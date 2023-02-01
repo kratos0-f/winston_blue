@@ -32,6 +32,14 @@ public class Application implements Consumer<Event> {
      * Первый заголовок
      */
     private final Label label;
+    /**
+     * Второй заголовок
+     */
+    private final Label label2;
+    /**
+     * Третий заголовок
+     */
+    private final Label label3;
 
     /**
      * радиус скругления элементов
@@ -47,7 +55,14 @@ public class Application implements Consumer<Event> {
         window = App.makeWindow();
         // создаём первый заголовок
         label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
-                "Привет, мир!", true, true);
+                4, 4, 1, 1, 1, 1, "Привет, мир!", true, true);
+        // создаём второй заголовок
+        label2 = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                4, 4, 0, 3, 1, 1, "Второй заголовок", true, true);
+
+        // создаём третий заголовок
+        label3 = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                4, 4, 2, 0, 1, 1, "Это тоже заголовок", true, true);
         // задаём обработчиком событий текущий объект
         window.setEventListener(this);
         // задаем заголовок окна
@@ -136,6 +151,10 @@ public class Application implements Consumer<Event> {
         canvas.clear(APP_BACKGROUND_COLOR);
         // рисуем заголовок
         label.paint(canvas, windowCS);
+        // рисуем второй заголовок
+        label2.paint(canvas, windowCS);
+        // рисуем третий заголовок
+        label3.paint(canvas, windowCS);
         // восстанавливаем состояние канваса
         canvas.restore();
     }
